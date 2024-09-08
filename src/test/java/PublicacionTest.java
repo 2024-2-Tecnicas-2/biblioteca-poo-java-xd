@@ -1,19 +1,22 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+import com.mycompany.biblioteca.java.Publicacion;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class PublicacionTest {
-    // TODO Adiciona tus pruebas unitarias aquí.
-    // Los métodos deben estar anotados con la anotación @Test. Por ejemplo:
-    //
-//    @Test
-//    public void testMultiplicarPositivos() {
-//        int valorEsperado = 15;
-//        CuentaBancaria miCuenta = new CuentaBancaria();
-//        int valorActual = miCuenta.multiplicar(3, 5);
-//        assertEquals(valorEsperado, valorActual);
-//    }
+    
+    @Test
+    void toString_shouldReturnCorrectString() {
+        Publicacion publicacion = new Publicacion("Mi Publicación", 2023);
+        String expected = "Publicacion{titulo=Mi Publicación, anioDePublicacion=2023}";
+        assertEquals(expected, publicacion.toString());
+    }
+
+    @Test
+    void toString_shouldHandleEmptyValues() {
+        Publicacion publicacion = new Publicacion("", 0);
+        String expected = "Publicacion{titulo=, anioDePublicacion=0}";
+        assertEquals(expected, publicacion.toString());
+    }
 }
+
+

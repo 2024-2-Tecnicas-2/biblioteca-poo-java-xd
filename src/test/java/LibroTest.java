@@ -1,19 +1,22 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+import com.mycompany.biblioteca.java.Libro;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 public class LibroTest {
-    // TODO Adiciona tus pruebas unitarias aquí.
-    // Los métodos deben estar anotados con la anotación @Test. Por ejemplo:
-    //
-//    @Test
-//    public void testMultiplicarPositivos() {
-//        int valorEsperado = 15;
-//        CuentaBancaria miCuenta = new CuentaBancaria();
-//        int valorActual = miCuenta.multiplicar(3, 5);
-//        assertEquals(valorEsperado, valorActual);
-//    }
+    
+     @Test
+    void toString_shouldReturnCorrectString() {
+        Libro libro = new Libro("El señor de los anillos", 1954, "J.R.R. Tolkien", 1178);
+        String expected = "Publicacion{titulo=El señor de los anillos, anioDePublicacion=1954}Libro{autor=J.R.R. Tolkien, numeroDePaginas=1178}";
+        assertEquals(expected, libro.toString());
+    }
+
+    @Test
+    void toString_shouldHandleEmptyValues() {
+        Libro libro = new Libro("", 0, "", 0);
+        String expected = "Publicacion{titulo=, anioDePublicacion=0}Libro{autor=, numeroDePaginas=0}";
+        assertEquals(expected, libro.toString());
+    }
 }
+

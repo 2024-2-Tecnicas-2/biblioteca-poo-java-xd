@@ -1,19 +1,24 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
+import com.mycompany.biblioteca.java.Revista;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 public class RevistaTest {
-    // TODO Adiciona tus pruebas unitarias aquí.
-    // Los métodos deben estar anotados con la anotación @Test. Por ejemplo:
-    //
-//    @Test
-//    public void testMultiplicarPositivos() {
-//        int valorEsperado = 15;
-//        CuentaBancaria miCuenta = new CuentaBancaria();
-//        int valorActual = miCuenta.multiplicar(3, 5);
-//        assertEquals(valorEsperado, valorActual);
-//    }
+    
+    @Test
+    void toString_shouldReturnCorrectString() {
+        Revista revista = new Revista("National Geographic", 2023, 12, "Naturaleza");
+        String expected = "Publicacion{titulo=National Geographic, anioDePublicacion=2023}Revista{numeroDeRevista=12, nombreDeRevista=Naturaleza}";
+        assertEquals(expected, revista.toString());
+    }
+
+    @Test
+    void toString_shouldHandleEmptyValues() {
+        Revista revista = new Revista("", 0, 0, "");
+        String expected = "Publicacion{titulo=, anioDePublicacion=0}Revista{numeroDeRevista=0, nombreDeRevista=}";
+        assertEquals(expected, revista.toString());
+    }
+    
+    
 }
+
